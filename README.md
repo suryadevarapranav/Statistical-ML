@@ -1,24 +1,35 @@
-# Deepfake Detection Flask Application
+# COMP 540: Statistical Machine Learning 
+
+DeepFake Detection project for the course at Rice University in Fall 2023.
+
+**Team Members**: <br/>
+Priyam Thakkar - pt50@rice.edu <br/>
+Pranav Suryadevara - pranav.suryadevara@rice.edu
+
+This repository contains the python jupyter notebooks built for the course project. <br/>
+It also consists of a lightweight flask application that uses the final selected model.[Priyam Thakkar](https://github.com/priyamthakkar2001/SML-Project) developed for a previous course and we tweaked it to our project specifications.
+
+## Deepfake Detection Flask Application
 
 This repository contains a Flask application that can classify videos as either original or manipulated (deepfake). The application utilizes a machine learning model to analyze video frames and generate a classification result.
 
-## Getting Started
+### Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### Prerequisites
+#### Prerequisites
 
 Before you begin, ensure you have the following installed:
 - Python 3.6+
 - pip (Python package manager)
 
-### Installation
+#### Installation
 
 To set up the project environment, follow these steps:
 
 1. Clone the repository to your local machine:
 ```bash
-git clone https://github.com/priyamthakkar2001/SML-Project.git
+git clone https://github.com/suryadevarapranav/Statistical-ML.git
 ```
 
 2. Navigate to the project directory:
@@ -31,7 +42,7 @@ cd 'Deepfake Project'
 pip install -r requirements.txt
 ```
 
-## Running the Application
+### Running the Application
 
 To run the Flask application, use the following command:
 ```bash
@@ -39,7 +50,7 @@ python3 app.py
 ```
 After running the command, you can access the application at `http://127.0.0.1:5000/` in your web browser.
 
-## Using the Application
+### Using the Application
 
 To use the application:
 
