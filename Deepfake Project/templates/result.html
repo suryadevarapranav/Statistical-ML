@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Analysis Result - Deepfake Classification</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('../static/images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            color: #fff; /* White text color */
+            text-align: center;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7); /* Darker semi-transparent black background */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+            margin-top: 20px;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-top: 20px; /* More space on top */
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #ffffff; /* Light blue */
+            margin-bottom: 1em; /* More space below sub-header */
+        }
+
+        .prediction {
+            background: rgba(28, 149, 168, 0.659); /* Semi-transparent white background */
+            color: #000000; /* Dark text for readability */
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin: 5px 0; /* Spacing between predictions */
+        }
+
+        img {
+            max-width: 90%;
+            height: auto;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .button-container {
+            margin: 20px;
+        }
+
+        a {
+            display: inline-block;
+            text-decoration: none;
+            color: #000000;
+            background-color: rgba(28, 149, 168, 0.659);
+            padding: 10px 20px;
+            border: 1px solid #337ab7;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            font-weight: bold;
+        }
+
+        a:hover {
+            background-color: #337ab7;
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Prediction Results</h1>
+        <div class="prediction">
+            <p>{{ predictions }}</p>
+        </div>
+        <h2>Heatmaps</h2>
+        {% for heatmap in heatmap_paths %}
+            <img src="{{ heatmap }}" alt="Heatmap Image">
+        {% endfor %}
+        <div class="button-container">
+            <a href="/">Upload another video</a>
+        </div>
+    </div>
+</body>
+</html>

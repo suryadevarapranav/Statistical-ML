@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Deepfake Classification - Video Upload</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('../static/images/background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #fff; /* White text color */
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 80%;
+            max-width: 600px;
+        }
+
+        h1, h2 {
+            margin: 0 0 20px 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 0.5em; /* Less space below main header */
+        }
+
+        h2 {
+            font-size: 1.5em;
+            color: #aad3ea; /* Light blue for the secondary header */
+            margin-bottom: 1em; /* More space below sub-header */
+        }
+
+        .custom-file-upload {
+            display: block;
+            width: auto;
+            font-size: 16px;
+            margin: 10px;
+            padding: 10px 15px;
+            background: #1e90ff; /* Blue background */
+            color: #fff; /* White text */
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .custom-file-upload:hover {
+            background: #0b78d1; /* Slightly darker blue on hover */
+        }
+
+        .hidden-input {
+            width: 0.1px;
+            height: 0.1px;
+            opacity: 0;
+            overflow: hidden;
+            position: absolute;
+            z-index: -1;
+        }
+
+        .filename-container {
+            font-size: 16px;
+            margin: 10px;
+            color: #fff; /* White text */
+        }
+
+        button {
+            background-color: #4CAF50; /* Green */
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        button:hover {
+            background-color: #45a049; /* Darker green */
+        }
+
+        #loading-bar {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .loader {
+            border: 5px solid #f3f3f3; /* Light grey */
+            border-top: 5px solid #3498db; /* Blue */
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+    <div id="loading-bar">
+        <div class="loader"></div>
+    </div>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <div class="container">
+            <h2>Deepfake Classification</h2>
+            <h1>Upload a Video File</h1>
+            <label class="custom-file-upload">
+                <input type="file" class="hidden-input" name="video" accept="video/*" onchange="updateFilename()">
+                Select file
+            </label>
+            <div class="filename-container" id="filename">No file chosen</div>
+            <button type="submit">Upload and Analyze</button>
+        </div>
+    </form>
+
+    <script>
+    function updateFilename() {
+        var input = document.querySelector('.hidden-input');
+        var filenameContainer = document.getElementById('filename');
+        var filename = input.files.length > 0 ? input.files[0].name : 'No file chosen';
+        filenameContainer.textContent = filename;
+    }
+
+    function showLoader() {
+    document.getElementById('loading-bar').style.display = 'flex'; // Show the loader
+}
+
+    // Add event listener to the form submit event
+    document.querySelector('form').addEventListener('submit', showLoader);
+
+    </script>
+</body>
+</html>
